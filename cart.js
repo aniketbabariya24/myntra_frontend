@@ -31,7 +31,7 @@ if (token !== null) {
 fetchData();
 async function fetchData() {
   let uid= localStorage.getItem("uid")
-  await fetch(`http://localhost:8080/cart/give/${uid}`, {
+  await fetch(`https://myntra-tun3.onrender.com/cart/give/${uid}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -211,7 +211,7 @@ priceDetailsContainer.innerHTML = `<div class="priceDetails">PRICE DETAILS <span
 </div> <br> <br>`;
 
 async function paymentBtn() {
-    await fetch("http://localhost:8080/cart/deleteAll", {
+    await fetch("https://myntra-tun3.onrender.com/cart/deleteAll", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -230,7 +230,7 @@ cartParent.append(cartLeft, cartRight);
 
 async function removeCartItem(id, index) {
   await fetch(
-    `http://localhost:8080/cart/delete/${id}`,
+    `https://myntra-tun3.onrender.com/cart/delete/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -260,7 +260,7 @@ async function removeCartItem(id, index) {
 function increaseQty(e) {
   const id = e.getAttribute("data");
   console.log(id)
-  fetch(`http://localhost:8080/cart/${id}`, {
+  fetch(`https://myntra-tun3.onrender.com/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -272,7 +272,7 @@ function increaseQty(e) {
       console.log(res)
       res.qty++;
       console.log(res)
-      fetch(`http://localhost:8080/cart/update/${id}`, {
+      fetch(`https://myntra-tun3.onrender.com/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
@@ -296,7 +296,7 @@ function increaseQty(e) {
 
 function decreaseQty(e) {
   const id = e.getAttribute("data");
-  fetch(`http://localhost:8080/cart/${id}`, {
+  fetch(`https://myntra-tun3.onrender.com/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -307,7 +307,7 @@ function decreaseQty(e) {
     .then((res) => {
       res.qty = res.qty === 1 ? 1 : res.qty - 1;
 
-      fetch(`http://localhost:8080/cart/update/${id}`, {
+      fetch(`https://myntra-tun3.onrender.com/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",

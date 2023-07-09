@@ -1,6 +1,6 @@
 let productGridItems = document.getElementById("productGridItems");
 let WishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
-const url = "http://localhost:8080/products";
+const url = "https://myntra-tun3.onrender.com/products";
 var womensData = [];
 // Fetch mens data from API
 fetchData();

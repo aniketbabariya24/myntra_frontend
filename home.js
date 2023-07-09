@@ -38,7 +38,7 @@ hamburger.addEventListener("click", () => {
 // Fetch data to get name and count
 
 if (token !== null) {
-  await fetch(`http://localhost:8080/cart`, {
+  await fetch(`https://myntra-tun3.onrender.com/cart`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -66,7 +66,7 @@ count_div.addEventListener("click", () => {
 });
 
 function showCartCount() {
-  fetch("http://localhost:8080/cart", {
+  fetch("https://myntra-tun3.onrender.com/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

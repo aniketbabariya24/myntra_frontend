@@ -1,5 +1,5 @@
 let productGridItems = document.getElementById("productGridItems");
-const url = "http://localhost:8080/products";
+const url = "https://myntra-tun3.onrender.com/products";
 let WishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
 
 var mensData = [];
@@ -194,7 +194,7 @@ FilterPrice.addEventListener("click", (event) => {
   let max = Number(event.target.max);
 
   fetch(
-    `http://localhost:8080/products?min=${min}&max=${max}`,
+    `https://myntra-tun3.onrender.com/products?min=${min}&max=${max}`,
     {
       method: "GET",
       headers: {

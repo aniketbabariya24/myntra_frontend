@@ -132,7 +132,7 @@ const uid= localStorage.getItem("uid")
   };
 
   if (token !== null) {
-    fetch("http://localhost:8080/cart/create", {
+    fetch("https://myntra-tun3.onrender.com/cart/create", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -161,7 +161,7 @@ const uid= localStorage.getItem("uid")
 }
 function showCartCount() {
   const uid= localStorage.getItem("uid")
-  fetch(`http://localhost:8080/cart/give/${uid}`, {
+  fetch(`https://myntra-tun3.onrender.com/cart/give/${uid}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
