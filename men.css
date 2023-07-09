@@ -10,14 +10,15 @@ body {
     font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
       Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    margin-top: 13vh;
+    margin-top: 10vh;
+    border: 2px solid brown;
   }
   
   #ProductsParent div:nth-child(1) {
     color: #282c3f;
     font-size: 14px;
     line-height: 1;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
   }
   
@@ -30,7 +31,7 @@ body {
     font-size: 14px;
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
   }
   
   #ProductsParent div:nth-child(2) > span {
@@ -190,8 +191,11 @@ cursor: pointer;
 }
   #productGridItems #outerDIv {
     width: 100%;
+    border: 1px solid grey;
   }
-  
+  #products{
+    border: 1px solid lightgrey;
+  }
   #productGridItems img {
     width: 100%;
     margin-bottom: 0;
@@ -213,24 +217,27 @@ cursor: pointer;
     font-weight: 500;
     line-height: 3;
     color: #282c3f;
-    margin-bottom: -5px;
+    margin-bottom: -50px;
     margin-top: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    /* border: 2px solid green; */
   }
   
   #products .title {
     color: #535766;
     font-size: 14px;
-    line-height: 3;
-    margin-bottom: 0;
-    margin-top: 0;
+    line-height: 2.5;
+    margin-top: -8px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 400;
     display: block;
+    /* border: 2px solid red; */
+    margin-bottom: 100px;
+
   }
   
   #products .price {
@@ -335,7 +342,7 @@ cursor: pointer;
   /* Providing gap to footer */
 
   footer{
-    margin-top: 20%;
+    margin-top: 5%;
   }
 
 

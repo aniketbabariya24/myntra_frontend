@@ -1,5 +1,5 @@
 let productGridItems = document.getElementById("productGridItems");
-const url = "https://doubtful-toad-flip-flops.cyclic.app//products";
+const url = "http://localhost:8080/products";
 let WishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
 
 var mensData = [];
