@@ -194,7 +194,7 @@ FilterPrice.addEventListener("click", (event) => {
   let max = Number(event.target.max);
 
   fetch(
-    `https://doubtful-toad-flip-flops.cyclic.app//products?min=${min}&max=${max}`,
+    `http://localhost:8080/products?min=${min}&max=${max}`,
     {
       method: "GET",
       headers: {

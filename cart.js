@@ -1,5 +1,6 @@
 let cartParent = document.getElementById("cartParent");
 const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+// console.log(cartData)
 const empty_cart = document.getElementById("empty_cart");
 const not_empty = document.getElementById("not_empty");
 const token = localStorage.getItem("token");
@@ -27,25 +28,27 @@ if (token !== null) {
   empty_cart.style.display = "block";
   not_empty.style.display = "none";
 }
-
+fetchData();
 async function fetchData() {
-  await fetch(`https://doubtful-toad-flip-flops.cyclic.app//cart`, {
+  let uid= localStorage.getItem("uid")
+  await fetch(`http://localhost:8080/cart/give/${uid}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
       Authorization: localStorage.getItem("token"),
     },
+    
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res, "response");
+    //  console.log(res)
       const Pcount = document.getElementById("Pcount");
       const totalPrice = document.getElementById("totalPrice");
       const totalAmount = document.getElementById("totalAmount");
       const discountPrice = document.getElementById("discountPrice");
       let total = 0;
-      for (let i = 0; i < res.cart.length; i++) {
-        total += Number(res.cart[i].price) * Number(res.cart[i].qty);
+      for (let i = 0; i < res.length; i++) {
+        total += Number(res[i].price) * Number(res[i].qty);
       }
       totalPrice.innerText = "₹" + total;
       const discount = Number(total) * (15 / 100);
@@ -53,9 +56,9 @@ async function fetchData() {
       discountPrice.innerText = "₹" + discount.toFixed(2);
       totalAmount.innerText = "₹" + (Number(total) - Number(discount));
 
-      Pcount.innerText = res.cart.length + " Items";
+      Pcount.innerText = res.length + " Items";
       Pcount.style.color = "red";
-      displayProducts(res.cart);
+      displayProducts(res);
     })
     .catch((error) => {
       console.log({ msg: "Something went wrong", error: error.message });
@@ -208,14 +211,14 @@ priceDetailsContainer.innerHTML = `<div class="priceDetails">PRICE DETAILS <span
 </div> <br> <br>`;
 
 async function paymentBtn() {
-    await fetch("https://doubtful-toad-flip-flops.cyclic.app//cart/deleteAll", {
+    await fetch("http://localhost:8080/cart/deleteAll", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
       },
     });
-    localStorage.setItem("cartData", JSON.stringify([]));
+    localStorage.removeItem("cartData")
     window.location.href = "./payment.html";
 }
 
@@ -227,7 +230,7 @@ cartParent.append(cartLeft, cartRight);
 
 async function removeCartItem(id, index) {
   await fetch(
-    `https://doubtful-toad-flip-flops.cyclic.app//cart/delete/${id}`,
+    `http://localhost:8080/cart/delete/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -256,7 +259,8 @@ async function removeCartItem(id, index) {
 
 function increaseQty(e) {
   const id = e.getAttribute("data");
-  fetch(`https://doubtful-toad-flip-flops.cyclic.app//cart/${id}`, {
+  console.log(id)
+  fetch(`http://localhost:8080/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -265,8 +269,10 @@ function increaseQty(e) {
   })
     .then((res) => res.json())
     .then((res) => {
+      console.log(res)
       res.qty++;
-      fetch(`https://doubtful-toad-flip-flops.cyclic.app//cart/update/${id}`, {
+      console.log(res)
+      fetch(`http://localhost:8080/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
@@ -290,7 +296,7 @@ function increaseQty(e) {
 
 function decreaseQty(e) {
   const id = e.getAttribute("data");
-  fetch(`https://doubtful-toad-flip-flops.cyclic.app//cart/${id}`, {
+  fetch(`http://localhost:8080/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -301,7 +307,7 @@ function decreaseQty(e) {
     .then((res) => {
       res.qty = res.qty === 1 ? 1 : res.qty - 1;
 
-      fetch(`https://doubtful-toad-flip-flops.cyclic.app//cart/update/${id}`, {
+      fetch(`http://localhost:8080/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",

@@ -75,7 +75,7 @@
   }
   
   .ratebox {
-    /* width: 40%; */
+    width: 40%;
     width: fit-content;
     height: 40px;
     padding: 10px;
@@ -86,6 +86,7 @@
     font-weight: 400;
     color: #282c3f;
     display: flex;
+    /* width: 100px; */
   }
   .ratebox>i{
     margin-left: -35px;
@@ -110,13 +111,13 @@
   }
   .separator {
     color: gray;
-    margin-left: 10px;
+    margin-left: -18px;
     float: left;
     margin-bottom: 4px;
   }
   .ratingCount {
     color: gray;
-    margin-left: 10px;
+    margin-left: -15px;
   }
   
   hr {

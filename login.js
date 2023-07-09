@@ -1,4 +1,4 @@
-import { navbar } from "../Component/navbar.js";
+import { navbar } from "./navbar.js";
 
 let header = document.getElementById("home_navbar");
 header.innerHTML = navbar();
@@ -30,7 +30,7 @@ form.addEventListener("click", async (e) => {
     pass: form.password.value,
   };
 
-  await fetch("https://doubtful-toad-flip-flops.cyclic.app//users/login", {
+  await fetch("http://localhost:8080/users/login", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -52,6 +52,7 @@ form.addEventListener("click", async (e) => {
 
       localStorage.setItem("token", res.token);
       localStorage.setItem("loggedInUser", res.name);
+      localStorage.setItem("uid", res.uid);
     })
     .catch((err) => {
       console.log({ msg: "Something went wrong" });

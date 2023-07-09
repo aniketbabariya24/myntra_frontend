@@ -63,8 +63,9 @@
 
 #WishListContainer #products{
     width: 100%;
-    border: 1px solid rgb(221, 213, 213);
+    border: 1px solid lightgray;
     position: relative;
+    /* height: 450px; */
 }
 
 
@@ -79,7 +80,7 @@
 }
 
 #WishListContainer #products a > div {
-    margin: 5px;
+    /* margin: 5px; */
     padding: 5px;
     color: black;
     line-height: 30px;
@@ -89,7 +90,7 @@
   #WishListContainer #products .title {
     color: #535766;
     font-size: 14px;
-    line-height: 35px;
+    line-height: 25px;
     margin-bottom: 0;
     margin-top: 0;
     overflow: hidden;
@@ -149,8 +150,8 @@
       cursor: pointer;
       text-align: center;
       font-size: 14px;
-      margin-top: 20px;
-      padding: 15px;
+      margin-top: 0px;
+      padding: 12px;
       border: none;
       border-top: 1px solid rgb(221, 213, 213);
      

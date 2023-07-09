@@ -6,7 +6,7 @@ const wishlistparent = document.getElementById("wishlistparent");
 const empty_bag = document.getElementById("empty_bag");
 
 const token = localStorage.getItem("token");
-console.log(token);
+// console.log(token);
 import { navbar } from "./navbar.js";
 
 // RESPONSIVE NAVBAR CSS
@@ -104,7 +104,7 @@ function displayWishListProducts() {
 // WISHLIST BUTTON
 
 function removeWishList(index) {
-  console.log(index);
+  // console.log(index);
   wishListData.splice(index, 1);
 
   displayWishListProducts();
@@ -116,9 +116,11 @@ function removeWishList(index) {
 //  ADD TO CART BUTTON
 
 function addToCart(product, index) {
+  console.log("hello")
   console.log(product);
-
+const uid= localStorage.getItem("uid")
   const payload = {
+    userID:uid,
     title: product.category,
     image: product.image_url.image1
       ? product.image_url.image1
@@ -130,7 +132,7 @@ function addToCart(product, index) {
   };
 
   if (token !== null) {
-    fetch("https://doubtful-toad-flip-flops.cyclic.app//cart/create", {
+    fetch("http://localhost:8080/cart/create", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -145,8 +147,8 @@ function addToCart(product, index) {
         localStorage.setItem("cartData", JSON.stringify(cartData));
         displayWishListProducts();
         localStorage.setItem("Wishlist", JSON.stringify(wishListData));
-        console.log("added to cart", product);
-        console.log(res, "result");
+        // console.log("added to cart", product);
+        // console.log(res, "result");
         // location.reload();
         showCartCount();
       })
@@ -158,7 +160,8 @@ function addToCart(product, index) {
   }
 }
 function showCartCount() {
-  fetch("https://doubtful-toad-flip-flops.cyclic.app//cart", {
+  const uid= localStorage.getItem("uid")
+  fetch(`http://localhost:8080/cart/give/${uid}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -167,9 +170,9 @@ function showCartCount() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.cart, "data");
+      console.log(data.length)
       let cart_count = document.getElementById("cart-count-info");
-      cart_count.innerText = data.cart.length;
+      cart_count.innerText = data.length;
     });
 }
 showCartCount();

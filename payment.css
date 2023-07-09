@@ -8,6 +8,8 @@
   
   * {
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
   }
   
 
@@ -62,7 +64,7 @@
     margin: 1em;
   }
   .size-md {
-    font-size: 0.85em;
+    font-size: 1rem;
   }
   .size-lg {
     font-size: 1.5em;

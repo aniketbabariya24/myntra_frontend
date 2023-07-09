@@ -30,7 +30,7 @@ const displayData = () => {
     Left.innerHTML = `<img style="width:50%;height:auto;margin-left:25%" src="${product.image_url}" alt="">`;
   }
   Right.innerHTML = ` <h3 class="poductName">${product.brand}</h3>
-    <h3 class="ProductTitle">${product.category}</h3>
+    <h3 class="ProductTitle">${product.subtext}</h3>
     <div class="ratebox">
     <p class="productRating">4</p>
     <i class="fa-sharp fa-solid fa-star"></i>
